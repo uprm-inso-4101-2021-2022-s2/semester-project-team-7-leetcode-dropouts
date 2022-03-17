@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +6,8 @@
     <meta charset ="utf-8">
     <meta name = "viewport" content="width=device-width">
     <title>"Productivity Boost"</title>
-    <link rel="stylesheet" href="staticfiles/cal/style.css" type="text/css">
+    
+    <link rel="stylesheet" href="{% static 'cal/style.css' %}" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -23,10 +25,10 @@
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="/task.html" class="navbar__links">TASKS</a>
+                    <a href="/tasks" class="navbar__links">TASKS</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="/pomodoro.html" class="navbar__links">POMODORO</a>
+                    <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
                 <li class="navbar__btn ">
                     <a href="/" class="button">SIGN UP / LOGIN</a>
@@ -49,7 +51,7 @@
         </div>
     </div>
 
-    <script src="/staticfiles/cal/app.js "></script>
+    <script src="static/cal/app.js "></script>
 </body>
 
 </html>

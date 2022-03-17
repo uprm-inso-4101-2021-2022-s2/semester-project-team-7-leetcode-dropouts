@@ -29,10 +29,12 @@ ALLOWED_HOSTS = []
 
 import os
 
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# STATIC_ROOT = os.path.join(SITE_ROOT,'static')
 
 STATICFILES_DIRS = (
-    os.path.join(SITE_ROOT, 'staticfiles/'),
+    os.path.join(SITE_ROOT, 'static/',),
 )
 
 # Application definition

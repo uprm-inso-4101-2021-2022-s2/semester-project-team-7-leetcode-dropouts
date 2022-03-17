@@ -391,7 +391,7 @@
     rgba(0,0,0,0) 0%,
     rgba(17,17,17, 0.6) 100%
     ),
-    url('/Images/clock.jpeg');
+    url('/static/cal/images/clock.jpeg');
     background-size: cover;
     position: relative;
     color: #141414;
@@ -403,7 +403,7 @@
     rgba(0,0,0,0) 0%,
     rgba(17,17,17, 0.6) 100%
     ),
-    url('/Images/todo.jpg');
+    url('/static/cal/images/todo.jpg');
 }
 
 .services h2{

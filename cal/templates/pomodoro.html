@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +6,7 @@
     <meta charset ="utf-8">
     <meta name = "viewport" content="width=device-width">
     <title>Productivity Boost</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="/static/cal/style.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="/code/index.html" id="navbar__logo">Boost Verse</a>
+            <a href="/" id="navbar__logo">Boost Verse</a>
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -24,10 +25,10 @@
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="/code/task.html" class="navbar__links">TASKS</a>
+                    <a href="/tasks" class="navbar__links">TASKS</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="/code/pomodoro.html" class="navbar__links">POMODORO</a>
+                    <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
                 <li class="navbar__btn">
                     <a href="/" class="button">SIGN UP / LOGIN</a>
@@ -53,6 +54,6 @@
         <!-- <a href="pomodoro.html" class="pomodoro__btn">START</a> -->
     </div>
     
-    <script src="app.js "></script>
+    <script src="/static/cal/app.js "></script>
 </body>
 </html>
