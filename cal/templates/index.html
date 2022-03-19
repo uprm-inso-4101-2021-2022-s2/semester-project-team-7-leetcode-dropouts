@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +7,6 @@
     <meta charset ="utf-8">
     <meta name = "viewport" content="width=device-width">
     <title>"Productivity Boost"</title>
-    
     <link rel="stylesheet" href="{% static 'cal/style.css' %}" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="/index.html" id="navbar__logo">Boost Verse</a>
+            <a href="/" id="navbar__logo">Boost Verse</a>
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -31,7 +31,7 @@
                     <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
                 <li class="navbar__btn ">
-                    <a href="/" class="button">SIGN UP / LOGIN</a>
+                    <a href="/signin" class="button">SIGN UP / LOGIN</a>
                 </li>
             </ul>
         </div>
@@ -42,16 +42,16 @@
         <div class="services__container">
             <div class="services__card">
                 <h2>POMODORO SESSION</h2>
-                <button class="main__btn"><a href="/pomodoro.html">START</a></button>
+                <button class="main__btn"><a href="/pomodoro">START</a></button>
             </div>
             <div class="services__card">
                 <h2>TASK LIST</h2>
-                <button class="main__btn"><a href="/task.html">START</a></button>
+                <button class="main__btn"><a href="/tasks">START</a></button>
             </div>
         </div>
     </div>
 
-    <script src="static/cal/app.js "></script>
+    <script src="{% static 'cal/app.js ' %}"></script>
 </body>
 
 </html>

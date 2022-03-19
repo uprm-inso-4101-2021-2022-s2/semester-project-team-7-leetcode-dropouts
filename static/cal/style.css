@@ -467,78 +467,87 @@
     }
 }
 
-/* STYLE OF EDUCATION SECTION */
+.pomodoro{
+    display: inline-block;
+    background-color: #3a383e;
+    height: 780px;
+    width: 100%;
+}
 
-/* .info__container{
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 3rem;
-    margin-top: center;
+.pomodoro h1{
+    background-color: #ff8177;
+    background-image: linear-gradient(
+        to right, 
+        #ff8c7f 41%,
+        #f99185 72%,
+        #cf556c 88%, 
+        #b12a5b 100%
+    );
+    background-size: 100%;
+    font-size: 4.5rem;
     text-align: center;
+    margin: 75px auto;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+
+}
+.pomodoro__box {
+    display: flex;
+    position: relative;
+    width: 500px;
+    height: 400px;
+    /* #ff8c7f */
+    background: rgba(173, 171, 171, 0.4);
+    float: left;
+    top: 50px;
+    left: 500px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 1.5rem;
 }
 
-.info__container h1{
-    color: #141414;
-    font-size: 5rem;
-    font-weight: 700;
-    letter-spacing: 6.5px;
-    margin-bottom: 1rem;
-}
-
-.info__container h2{
-    color:#141414;
-    font-size: 4rem;
-    font-weight: 400;
-}
-
-.image{
-    margin-top: 5rem;
-    margin-bottom: 3rem;
-}
-
-.info__container p{
-    font-size: 2rem;
-    color: #141414;
-    line-height: 5rem;
-    margin-bottom: 5rem;
-    font-size: 1.75rem;
-}
-.info__btn {
-    display: inline-block;
-    padding: 2.7rem 7.5rem;
-    background: #ff8177;
-    font-size:  2rem;
-    text-decoration: none;
-    color: #141414;
-    border-radius: 10px;
-    transition: background 0.5s;
-}
-
-.info__btn:hover{
-    background: #4837ff;
-} */
-
-
-.timer{
-    font-family: sans-serif;
-    display: inline-block;
-    padding: 24px 32px;
-    border-radius: 30px;
-    background: #fff;
-}
-
-.timer__part{
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.timer__btn{
-    width: 50px;
-    height: 50px;
-    margin-left: 16px;
-    border-radius: 50%;
+.pomodoro__btn{
+    color: black;
+    padding: 10px 20px;
     border: none;
-    color: white;
-    background: #8208e6;
+    outline: none;
+    border-radius: 4px;
+    background: #f77062;
+    position: absolute;
+    top: 300px;
+    left: 12rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pomodoro__btn:hover{
+    background-color: #4837ff;
+    transform: scale(1.075);
+    transition:  0.2s ease-in;
+    cursor: pointer;
+}
+
+.task__btn{
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #f77062;
+    position: absolute;
+    top: 400px;
+    left: 15rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.task__btn:hover{
+    background-color: #4837ff;
+    transform: scale(1.075);
+    transition:  0.2s ease-in;
     cursor: pointer;
 }

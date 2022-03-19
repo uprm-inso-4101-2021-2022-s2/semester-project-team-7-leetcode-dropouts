@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 
@@ -6,11 +7,12 @@
     <meta charset ="utf-8">
     <meta name = "viewport" content="width=device-width">
     <title>Productivity Boost</title>
-    <link rel="stylesheet" href="/static/cal/style.css" type="text/css">
+    <link rel="stylesheet" href="{% static 'cal/style.css' %}" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://lineicons.com/icons/">
     
 </head>
 
@@ -31,29 +33,19 @@
                     <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
                 <li class="navbar__btn">
-                    <a href="/" class="button">SIGN UP / LOGIN</a>
+                    <a href="/signin" class="button">SIGN UP / LOGIN</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class ="pomodoro__container">
+    <div class ="pomodoro">
         <h1>POMODORO</h1>
-        <div class="timer">
-            <span class="timer_part timer_part-minutes">00</span>
-            <span class="timer__part">:</span>
-            <span class="timer_part timer_part-seconds">00</span>
-            <button class="timer_btn timerbtn--control timer_btn--start">
-                <span class="material-icons-round">play_arrow</span>
-            </button>
-            <button class="timer_btn timer_btn--reset">
-                <span class="material-icons-round">timer</span>
-            </button>
+        <div class="pomodoro__box">
+            <buttton class="pomodoro__btn">START</buttton>
         </div>
-
-        <!-- <a href="pomodoro.html" class="pomodoro__btn">START</a> -->
     </div>
     
-    <script src="/static/cal/app.js "></script>
+    <script src="{% static 'cal/app.js' %}"></script>
 </body>
 </html>
