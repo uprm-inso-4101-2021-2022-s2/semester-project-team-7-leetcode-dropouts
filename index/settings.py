@@ -25,17 +25,19 @@ SECRET_KEY = 'django-insecure-@-e5k)$7z!u!0c2d8=97mep@b9f_t$#(@7q&7d8t_1vo-ud8fk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'boostverse.lalititos.com', '*.lalititos.com','https://boostverse.lalititos.com']
+ALLOWED_HOSTS = ['127.0.0.1','*', 'boostverse.lalititos.com', '*.lalititos.com','https://boostverse.lalititos.com']
+
+# ALLOWED_HOSTS = ['*']
 
 import os
 
-SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# STATIC_ROOT = os.path.join(SITE_ROOT,'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = (
-    os.path.join(SITE_ROOT, 'static/',),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static/',),
+# )
 
 # Application definition
 
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     'sslserver',
 ]
@@ -58,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'index.urls'
@@ -87,7 +92,7 @@ WSGI_APPLICATION = 'index.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -122,13 +127,21 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-STATIC_URL = 'static/'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+
+
+
+
+# Static Files Stuff
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = BASE_DIR / "static"
+STATIC_HOST = os.environ.get("DJANGO_STATIC_HOST", "")
+STATIC_URL = STATIC_HOST + "/static/"
