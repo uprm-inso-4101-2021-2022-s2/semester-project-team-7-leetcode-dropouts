@@ -467,7 +467,12 @@
     }
 }
 
-
+.pomodoro{
+    display: inline-block;
+    background-color: #3a383e;
+    height: 780px;
+    width: 100%;
+}
 
 .pomodoro h1{
     background-color: #ff8177;
@@ -520,6 +525,27 @@
 }
 
 .pomodoro__btn:hover{
+    background-color: #4837ff;
+    transform: scale(1.075);
+    transition:  0.2s ease-in;
+    cursor: pointer;
+}
+
+.task__btn{
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #f77062;
+    position: absolute;
+    top: 400px;
+    left: 15rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.task__btn:hover{
     background-color: #4837ff;
     transform: scale(1.075);
     transition:  0.2s ease-in;
