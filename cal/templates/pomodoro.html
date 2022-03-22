@@ -41,11 +41,57 @@
 
     <div class ="pomodoro">
         <h1>POMODORO</h1>
+        
         <div class="pomodoro__box">
-            <buttton class="pomodoro__btn">START</buttton>
+
+            <script>
+                function timer() {
+                    // Get todays time plus 30 min (1800 seconds * 1000 for the ms)
+                    var countDownDate = new Date().getTime() + 1801 * 1000;
+                    // Update the count down every 1 second
+                    var x = setInterval(function() {
+
+                    // Get today's date and time
+                    var now = new Date().getTime();
+                        
+                    // Find the distance between now and the count down date
+                    var distance = countDownDate - now;
+                        
+                    // Time calculations minutes and seconds
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                        
+                    // Output the result in an element with id="displayPomodoro"
+                    document.getElementById('displayPomodoro').innerHTML = minutes + "m " + seconds + "s ";
+                    document.getElementById('displayPomodoro').style.visibility = "visible";
+                        
+                    // If the count down is over, write Times Up
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("displayPomodoro").innerHTML = "Times Up";
+                        document.getElementById('displayPomodoro').style.visibility = "hidden";
+                    }}, 1000);
+                }
+            </script>
+            <p id="displayPomodoro", style="
+            color: black;
+            padding: 10px 10px;
+            border: none;
+            outline: none;
+            visibility: hidden;
+            border-radius: 4px;
+            background: #f77062;
+            position: absolute;
+            top: 170px;
+            left: 12rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            "></p>
+            <buttton class="pomodoro__btn", onclick="timer()">START</buttton>
         </div>
     </div>
     
     <script src="{% static 'cal/app.js' %}"></script>
+    {% comment %} <script src="{% static 'cal/timer.js' %}"></script> {% endcomment %}
 </body>
 </html>
