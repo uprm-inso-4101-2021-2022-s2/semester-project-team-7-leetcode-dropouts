@@ -23,3 +23,7 @@ def pomodoro(request):
 def signin(request):
 
     return render(request, 'signin.html')
+
+def signup(request):
+
+    return render(request, 'signup.html')
