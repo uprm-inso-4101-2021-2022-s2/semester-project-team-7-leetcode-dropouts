@@ -87,18 +87,20 @@
                 }
             </script>
             <p id="displayPomodoro", style="
+            visibility: hidden;
             color: black;
-            padding: 10px 10px;
+            padding: 10px 20px;
             border: none;
             outline: none;
-            visibility: hidden;
             border-radius: 4px;
             background: #f77062;
             position: absolute;
-            top: 170px;
-            left: 12rem;
+            /* top: 49%; */
+            /* left: 12rem; */
+            transform: translate(0,-50px);
             font-size: 1.75rem;
             font-weight: 700;
+            cursor: pointer;
             "></p>
             <buttton id='pomodoro_stop_button', class="pomodoro__btn", onclick="stopTimer()">STOP</buttton>
             <buttton id='pomodoro_button', class="pomodoro__btn", onclick="timer()">START</buttton>
