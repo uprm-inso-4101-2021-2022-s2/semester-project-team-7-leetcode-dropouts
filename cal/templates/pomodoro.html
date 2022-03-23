@@ -81,7 +81,8 @@
                 function stopTimer(){
                     running = false;
                     clearInterval(x)
-                    document.getElementById("displayPomodoro").innerHTML = "Stopped";
+                    //document.getElementById("displayPomodoro").innerHTML = "Stopped";
+                    document.getElementById('displayPomodoro').style.visibility = "hidden";
                     document.getElementById('pomodoro_button').style.visibility = "visible";
                 }
             </script>
