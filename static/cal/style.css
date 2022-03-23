@@ -467,11 +467,17 @@
     }
 }
 
+
+/* Pomodoro section */
+
 .pomodoro{
     display: inline-block;
     background-color: #3a383e;
     height: 100%;
     width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-items: auto;
 }
 
 .pomodoro h1{
@@ -495,19 +501,17 @@
 }
 .pomodoro__box {
     display: flex;
-    position: absolute;
     width: 500px;
     height: 400px;
-    /* #ff8c7f */
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
     background: rgba(173, 171, 171, 0.4);
-    float: left;
     top: 50px;
-    left: 25%;
-    margin: 25% 25% 22.5% 25%;
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 1.5rem;
-    transform: translate(-50%, -50%);
 }
 
 .pomodoro__btn{
@@ -518,8 +522,7 @@
     border-radius: 4px;
     background: #f77062;
     position: absolute;
-    top: 300px;
-    left: 12rem;
+    transform: translate(0,100px);
     font-size: 1.75rem;
     font-weight: 700;
     cursor: pointer;
@@ -528,6 +531,7 @@
 .pomodoro__btn:hover{
     background-color: #4837ff;
     transform: scale(1.075);
+    transform: translate(0,100px);
     transition:  0.2s ease-in;
     cursor: pointer;
 }
