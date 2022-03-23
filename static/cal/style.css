@@ -470,7 +470,7 @@
 .pomodoro{
     display: inline-block;
     background-color: #3a383e;
-    height: 780px;
+    height: 100%;
     width: 100%;
 }
 
@@ -495,18 +495,19 @@
 }
 .pomodoro__box {
     display: flex;
-    position: relative;
+    position: absolute;
     width: 500px;
     height: 400px;
     /* #ff8c7f */
     background: rgba(173, 171, 171, 0.4);
     float: left;
     top: 50px;
-    left: 500px;
-
+    left: 25%;
+    margin: 25% 25% 22.5% 25%;
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 1.5rem;
+    transform: translate(-50%, -50%);
 }
 
 .pomodoro__btn{
