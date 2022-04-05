@@ -8,6 +8,7 @@ from django.conf import settings
 
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 def register(request):
     return HttpResponse("Register Page")
 
@@ -19,7 +20,15 @@ def signin(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        user = auth
+        user = authenticate(username, password)
+
+        if user is not None:
+            login(request, user)
+            return render(request, '', {'user': username})
+
+        else:
+            messages.error(request, "Bad credentials!")
+            return redirect('signin')
 
     return render(request, 'signin.html')
 
