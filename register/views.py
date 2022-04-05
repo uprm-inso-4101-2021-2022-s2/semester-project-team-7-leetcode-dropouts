@@ -14,17 +14,28 @@ def register(request):
 
 def signin(request):
 
+    if request.method == "POST":
+
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = auth
+
     return render(request, 'signin.html')
 
 def signup(request):
 
     if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        pass1 = request.POST.get('pass1')
-        pass2 = request.POST.get('pass2')
+        # username = request.POST.get('username')
+        # email = request.POST.get('email')
+        # pass1 = request.POST.get('pass1')
+        # pass2 = request.POST.get('pass2')
+        username = request.POST['username']
+        email = request.POST['email']
+        pass1 = request.POST['pass1']
+        pass2 = request.POST['pass2']
 
-        NewUser = User.objects.create(username=username, email=email, pass1=pass1)
+        NewUser = User.objects.create(username=username, email=email, password=pass1)
         NewUser.save()
 
         messages.success(request, "Your Account has been successfully created.")

@@ -2,9 +2,6 @@ const menu = document.querySelector('#mobile-menu');
 const menuLinks = document.querySelector('.navbar__menu');
 
 const countdown = document.querySelector(".countdown");
-const date = new Date(25,00);
-
-console.log(date);
 
 countdown.innerHTML = '<div>${minutes}</div> <div>${seconds}</div>';
 
@@ -32,4 +29,45 @@ function myFunction() {
     }
 
   }
+}
+
+var x = null;
+function timer() {
+
+    // if(document.getElementById('pomodoro_button').innerHTML == "START"){
+    // Get todays time plus 30 min (1800 seconds * 1000 for the ms)
+    var countDownDate = new Date().getTime() + 1801 * 1000;
+    // running = true;
+    // Update the count down every 1 second
+    x = setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+                            
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+        
+    // Time calculations minutes and seconds
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+    // Output the result in an element with id="displayPomodoro"
+    document.getElementById('displayPomodoro').innerHTML = minutes + "m " + seconds + "s ";
+    document.getElementById('displayPomodoro').style.visibility = "visible";
+    document.getElementById('pomodoro_button').style.visibility = "hidden";
+        
+    // If the count down is over, write Times Up
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("displayPomodoro").innerHTML = "Times Up";
+        //document.getElementById('displayPomodoro').style.visibility = "hidden";
+    }
+    }, 1000);
+}
+function stopTimer(){
+    running = false;
+    clearInterval(x)
+    //document.getElementById("displayPomodoro").innerHTML = "Stopped";
+    document.getElementById('displayPomodoro').style.visibility = "hidden";
+    document.getElementById('pomodoro_button').style.visibility = "visible";
 }
