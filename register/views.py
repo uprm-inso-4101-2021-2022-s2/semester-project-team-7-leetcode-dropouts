@@ -8,23 +8,22 @@ from django.conf import settings
 
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
-def register(request):
-    return HttpResponse("Register Page")
+from django.contrib.auth import authenticate, login, logout
 
+from . import views
+from cal import urls
 
 def signin(request):
 
     if request.method == "POST":
 
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST['username']
+        pass1 = request.POST['password']
 
-        user = authenticate(username, password)
-
+        user = authenticate(username=username, password=pass1)
         if user is not None:
             login(request, user)
-            return render(request, '', {'user': username})
+            return redirect('/')
 
         else:
             messages.error(request, "Bad credentials!")
@@ -44,7 +43,7 @@ def signup(request):
         pass1 = request.POST['pass1']
         pass2 = request.POST['pass2']
 
-        NewUser = User.objects.create(username=username, email=email, password=pass1)
+        NewUser = User.objects.create_user(username=username, email=email, password=pass1)
         NewUser.save()
 
         messages.success(request, "Your Account has been successfully created.")
@@ -54,5 +53,6 @@ def signup(request):
     return render(request, 'signup.html')
 
 def signout(request):
-    pass
-
+    logout(request)
+    messages.success(request, "Logged out successfully")
+    return redirect('index')
