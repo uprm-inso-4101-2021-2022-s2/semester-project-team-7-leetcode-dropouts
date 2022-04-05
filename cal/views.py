@@ -20,10 +20,3 @@ def pomodoro(request):
 
     return render(request, 'pomodoro.html')
 
-def signin(request):
-
-    return render(request, 'signin.html')
-
-def signup(request):
-
-    return render(request, 'signup.html')

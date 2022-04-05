@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@-e5k)$7z!u!0c2d8=97mep@b9f_t$#(@7q&7d8t_1vo-ud8fk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','*', 'boostverse.lalititos.com', '*.lalititos.com','https://boostverse.lalititos.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'boostverse.lalititos.com', '*.lalititos.com','https://boostverse.lalititos.com']
 
 # ALLOWED_HOSTS = ['*']
 
@@ -40,6 +40,8 @@ import os
 # )
 
 # Application definition
+
+APPEND_SLASH = True
 
 INSTALLED_APPS = [
     'cal.apps.CalConfig',
@@ -70,7 +72,7 @@ ROOT_URLCONF = 'index.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, '/register/templates','/cal/templates','code'],
+        'DIRS': [BASE_DIR, 'register/templates','cal/templates','code'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
