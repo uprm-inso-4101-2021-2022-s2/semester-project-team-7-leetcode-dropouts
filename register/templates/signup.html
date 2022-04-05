@@ -41,7 +41,7 @@
 
     <div class="center2">
         <h1>Sign Up</h1>
-        <form method="post" action="/signup/">
+        <form method="post" action="/signup/">{% csrf_token %}
           <div class="txt_field">
             <input type="text" id="username" name="username" required>
             <span></span>
