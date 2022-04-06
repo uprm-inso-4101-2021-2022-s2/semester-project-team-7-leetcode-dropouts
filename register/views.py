@@ -20,7 +20,14 @@ def signin(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        user = auth
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+
+        else:
+            messages.error(request, "Bad credentials!")
+            return redirect('signin')
 
     return render(request, 'signin.html')
 

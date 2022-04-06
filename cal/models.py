@@ -16,8 +16,9 @@ class Tasks(models.Model):
     # task_id = models.IntegerField(primary_key=True)
     # Removed due to django adding it automatically
 
-    task_Title = models.CharField(max_length=128)
-    task_imrating = models.IntegerField()
+    assignments = models.CharField(max_length=256)
+    importance_raiting = models.IntegerField()
+    due_dates = models.DateTimeField('TTT')
 
     # tied_to = models.ForeignKey(Account, on_delete=models.CASCADE)
     # ~ Will be implemented later ~
