@@ -30,14 +30,33 @@
                 <li class="navbar__item">
                     <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="navbar__btn ">
+                    <a href="/signout" class="button">SIGN OUT {{ user }}?</a>
+                    {% comment %} <h1> Welcome {{ user }} </a> {% endcomment %}
+                </li>
+                {% else %}
                 <li class="navbar__btn ">
                     <a href="/signin" class="button">SIGN UP / LOGIN</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
 
     <div class="services">
+
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
+        <strong> Message: </strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> </button>
+        <span aria-hidden="true"> &times;</span>
+        </div>
+        {% endfor %}
+        {% if user.is_authenticated %}
+        <h3> Hello {{ user }} </h3>
+        <h4> You're sucessfully logged in </h4>
+        {% endif %}
         <h1>Improve your studying! BOOSTVERSE! </h1>
         <div class="services__container">
             <div class="services__card">
