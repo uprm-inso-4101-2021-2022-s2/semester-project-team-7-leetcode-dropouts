@@ -17,24 +17,10 @@ def signin(request):
 
     if request.method == "POST":
 
-<<<<<<< HEAD
         username = request.POST.get('username')
         password = request.POST.get('password')
 
         user = auth
-=======
-        username = request.POST['username']
-        pass1 = request.POST['password']
-
-        user = authenticate(username=username, password=pass1)
-        if user is not None:
-            login(request, user)
-            return redirect('/')
-
-        else:
-            messages.error(request, "Bad credentials!")
-            return redirect('signin')
->>>>>>> 7b1ce18a1d726f092086ffe775193de491c30250
 
     return render(request, 'signin.html')
 
@@ -50,11 +36,7 @@ def signup(request):
         pass1 = request.POST['pass1']
         pass2 = request.POST['pass2']
 
-<<<<<<< HEAD
         NewUser = User.objects.create(username=username, email=email, password=pass1)
-=======
-        NewUser = User.objects.create_user(username=username, email=email, password=pass1)
->>>>>>> 7b1ce18a1d726f092086ffe775193de491c30250
         NewUser.save()
 
         messages.success(request, "Your Account has been successfully created.")
