@@ -1,0 +1,106 @@
+{% load static %}
+
+{% if request.user.is_authenticated %}
+    <p>{{request.user}}</p>
+
+{% else %}
+
+
+{% endif%}
+<hr>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset ="utf-8">
+    <meta name = "viewport" content="width=device-width">
+    <title>"Productivity Boost"</title>
+        
+    <link rel="stylesheet" href="{% static 'cal/style.css' %}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://lineicons.com/icons/">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar__logo">Boost Verse</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/tasks" class="navbar__links">TASKS</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/pomodoro" class="navbar__links">POMODORO</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="navbar__btn ">
+                    <a href="/signout" class="button">SIGN OUT {{ user }}?</a>
+                    {% comment %} <h1> Welcome {{ user }} </a> {% endcomment %}
+                </li>
+                {% else %}
+                <li class="navbar__btn ">
+                    <a href="/signin" class="button">SIGN UP / LOGIN</a>
+                </li>
+                {% endif %}
+                {% comment %} <li class="navbar__btn">
+                    <a href="/" class="button">SIGN UP / LOGIN</a>
+                </li> {% endcomment %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="services">
+        <div class="task">
+            <h1>Tasks</h1>
+            <div class="task__btn">
+                {% comment %} <button onclick="myFunction()">Add Task</button>  {% endcomment %}
+                <a href="{% url 'task-create' %}"> Add Task </a>
+            </div>
+            
+            <table style="width: 150%">
+                <tr>
+                    <th>Assignments</th>
+                    <th>Due Dates</th>
+                    <th>Importance Rating</th>
+                </tr>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{task.Title}}</td>
+                    <td><a href="{% url 'task' task.id %}">View</a></td>
+                    <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
+                    <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+                </tr>
+                {% empty %}
+                <h3> No assignments </h3>
+                {% endfor %}
+                <tr>
+                    <td><p id="InputAdded"></p></td>
+                    <td><p id="Date"></p></td>
+                    <td><p id="Rating"</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+        
+
+
+        
+    <script src="{% static 'cal/app.js' %}">
+        var color = "#ff8177";
+        var i = 0;
+        document.querySelector(".task__btn").addEventListener("click", myFunction());{
+            i = 1 < color.length ? i++ : 0;
+        document.querySelector("body").style.background = color[i]};
+    </script>
+</body>
+
+</html>

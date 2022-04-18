@@ -1,15 +1,13 @@
 from django.shortcuts import render, redirect
-
-# Create your views here.
-from django.http import HttpResponse
-
+import datetime
+from django.http import HttpResponse, HttpResponseRedirect
 from django.conf.urls.static import static
 from django.conf import settings
-
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
+# from . import createUserForm
 from . import views
 from cal import urls
 
@@ -51,6 +49,27 @@ def signup(request):
         return redirect('signin')
 
     return render(request, 'signup.html')
+
+
+# def signup(response):
+#     if response.user.is_authenticated:
+#         return redirect("/")
+
+#     else:
+#         if response.method == "POST":
+#             form = RegisterForm(response.POST)
+#             if form.is_valid():
+#                 new_user = form.save()
+#                 # messages.info(response, "Thanks for registering. You are now logged in.")
+#                 new_user = authenticate(username=form.cleaned_data['username'],
+#                                         password=form.cleaned_data['password1'],
+#                                         )
+#                 login(response, new_user)
+#             return redirect("homepage")
+#         else:
+#             form = RegisterForm()
+
+#         return render(response, "register/register.html", {"form": form})
 
 def signout(request):
     logout(request)
