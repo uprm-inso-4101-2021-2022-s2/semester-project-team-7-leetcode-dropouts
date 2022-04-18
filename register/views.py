@@ -11,6 +11,9 @@ from django.contrib.auth import authenticate, login, logout
 from . import views
 from cal import urls
 
+from django.views.generic.edit import FormView
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 def signin(request):
 
     if request.method == "POST":
@@ -29,26 +32,56 @@ def signin(request):
 
     return render(request, 'signin.html')
 
-def signup(request):
+class RegisterForm(FormView):
 
-    if request.method == 'POST':
-        # username = request.POST.get('username')
-        # email = request.POST.get('email')
-        # pass1 = request.POST.get('pass1')
-        # pass2 = request.POST.get('pass2')
-        username = request.POST['username']
-        email = request.POST['email']
-        pass1 = request.POST['pass1']
-        pass2 = request.POST['pass2']
+    template_name = 'signup.html'
+    form_class = UserCreationForm
+    redirect_authenthicated_user = True
+    success_url = reverse_lazy('index')
 
-        NewUser = User.objects.create(username=username, email=email, password=pass1)
-        NewUser.save()
+    def form_valid(self, form):
+        user = form.save()
+        if user is not None:
+            login(self.request, user)
+        return super(RegisterForm, self).form_valid(form)
 
-        messages.success(request, "Your Account has been successfully created.")
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect('index')
+        return super(RegisterForm, self).get(*args, **kwargs)
 
-        return redirect('signin')
+# def signup(request):
 
-    return render(request, 'signup.html')
+#     if request.method == 'POST':
+#         # username = request.POST.get('username')
+#         # email = request.POST.get('email')
+#         # pass1 = request.POST.get('pass1')
+#         # pass2 = request.POST.get('pass2')
+#         username = request.POST['username']
+#         email = request.POST['email']
+#         pass1 = request.POST['pass1']
+#         pass2 = request.POST['pass2']
+
+#         NewUser = User.objects.create(username=username, email=email, password=pass1)
+#         NewUser.save()
+
+#         messages.success(request, "Your Account has been successfully created.")
+
+#         return redirect('signin')
+
+#     return render(request, 'signup.html')
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # def signup(response):

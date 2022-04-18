@@ -33,38 +33,37 @@
                     <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
                 <li class="navbar__btn">
-                    <a href="/signup" class="button">SIGN UP / LOGIN</a>
+                    <a href="/signin" class="button">SIGN UP / LOGIN</a>
                 </li>
             </ul>
         </div>
     </nav>
-      {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
-        <strong> Message: </strong> {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> </button>
-        <span aria-hidden="true"> &times;</span>
-        </div>
-        {% endfor %}
 
-    <div class="center">
-        <h1>Login</h1>
-        <form method="post" action="/signin/">
-        {% csrf_token %}
+    <div class="center2">
+        <h1>Sign Up</h1>
+        <form method="post" action="/signup/">{% csrf_token %}
           <div class="txt_field">
-            <input type="text" id="username" name="username"  required>
+            <input type="text" id="username" name="username" required>
             <span></span>
             <label>Username</label>
           </div>
           <div class="txt_field">
-            <input type="password" id="password" name="password" required>
+            <input type="email" id="email" name="email" required>
+            <span></span>
+            <label>Email</label>
+          </div>
+          <div class="txt_field">
+            <input type="password" id="pass1" name="pass1" required>
             <span></span>
             <label>Password</label>
           </div>
+          <div class="txt_field">
+            <input type="password" id="pass2" name="pass2" required>
+            <span></span>
+            <label>Confirm Password</label>
+          </div>
           <div class="pass">Forgot Password?</div>
           <input type="submit" value="Login">
-          <div class="signup_link">
-            Not a member? <a href="/signup">Signup</a>
-          </div>
         </form>
       </div>
     

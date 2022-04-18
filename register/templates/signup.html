@@ -42,7 +42,9 @@
     <div class="center2">
         <h1>Sign Up</h1>
         <form method="post" action="/signup/">{% csrf_token %}
-          <div class="txt_field">
+
+          {{form.as_p}}
+          {% comment %} <div class="txt_field">
             <input type="text" id="username" name="username" required>
             <span></span>
             <label>Username</label>
@@ -61,7 +63,7 @@
             <input type="password" id="pass2" name="pass2" required>
             <span></span>
             <label>Confirm Password</label>
-          </div>
+          </div> {% endcomment %}
           <div class="pass">Forgot Password?</div>
           <input type="submit" value="Login">
         </form>

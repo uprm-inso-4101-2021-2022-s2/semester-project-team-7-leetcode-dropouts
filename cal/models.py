@@ -18,15 +18,15 @@ class Task(models.Model):
     # task_id = models.IntegerField(primary_key=True)
     # Removed due to django adding it automatically
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    Title = models.CharField(max_length=256, null=True, blank=True)
+    title = models.CharField(max_length=256, null=True, blank=True)
     description = models.TextField(max_length=256, null=True, blank=True)
     importance_raiting = models.IntegerField(blank=True)
-    due_dates = models.DateTimeField('TTT')
+    due_dates = models.DateTimeField(null=True)
     complete = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.Title
+        return self.title
 
     class Meta:
         ordering = ['importance_raiting', 'complete']

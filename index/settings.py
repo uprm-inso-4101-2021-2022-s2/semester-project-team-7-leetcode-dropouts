@@ -144,7 +144,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-
+LOGIN_URL = 'signin'
 
 # Static Files Stuff
 
