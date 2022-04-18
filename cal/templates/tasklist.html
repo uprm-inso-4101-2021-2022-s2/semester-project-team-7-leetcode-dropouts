@@ -15,16 +15,28 @@
         <div class="task">
             <h1>Tasks</h1>
 
-            <form method="GET">
+            
+            <div id="search-add-wrapper">
+                <form method="GET" style="display: flex;">
+                    <input type='text' name='search-area' placeholder="Search for task" value="{{search_input}}">
+                    <input class="button" type="submit" value='Search'>
+                </form>
+                {% if tasks|length > 0 %}
+                <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+                {% endif %}
+            </div>
+
+
+            {% comment %} <form method="GET">
                 <input type="text" name="search-area" value = "{{search_input}}">
                 <input type="submit" value="Search">
 
-            </form>
+            </form> {% endcomment %}
 
-            <div class="task__btn">
-                {% comment %} <button onclick="myFunction()">Add Task</button>  {% endcomment %}
+            {% comment %} <div class="task__btn">
+                <button onclick="myFunction()">Add Task</button>
                 <a href="{% url 'task-create' %}"> Add Task </a>
-            </div>
+            </div>  {% endcomment %}
             
 
             <div class = "task-items-wrapper">

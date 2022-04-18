@@ -66,7 +66,9 @@ class TaskCreate(LoginRequiredMixin, CreateView):
 class TaskUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'task_form.html'
     model = Task
-    fields = '__all__'
+    # fields = '__all__'
+    fields = {'title', 'description', 'complete', 'importance_raiting', 'due_dates'}
+    
     success_url = reverse_lazy('tasks')
 
 class DeleteView(LoginRequiredMixin, DeleteView):
