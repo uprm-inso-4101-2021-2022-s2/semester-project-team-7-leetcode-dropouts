@@ -52,7 +52,7 @@ function timer() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
     // Output the result in an element with id="displayPomodoro"
-    document.getElementById('displayPomodoro').innerHTML = minutes + "m " + seconds + "s ";
+    document.getElementById('notDead').innerHTML = minutes + "m " + seconds + "s ";
     document.getElementById('displayPomodoro').style.visibility = "visible";
     document.getElementById('pomodoro_button').style.visibility = "hidden";
         
@@ -68,6 +68,7 @@ function stopTimer(){
     running = false;
     clearInterval(x)
     //document.getElementById("displayPomodoro").innerHTML = "Stopped";
-    document.getElementById('displayPomodoro').style.visibility = "hidden";
+    document.getElementById('notDead').innerHTML = "25m 0s"
+    document.getElementById('displayPomodoro').style.visibility = "visible";
     document.getElementById('pomodoro_button').style.visibility = "visible";
 }
