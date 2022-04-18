@@ -6,14 +6,14 @@
 <head>
     <meta charset ="utf-8">
     <meta name = "viewport" content="width=device-width">
-    <title>Productivity Boost</title>
+    <title>"Productivity Boost"</title>
+        
     <link rel="stylesheet" href="{% static 'cal/style.css' %}" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://lineicons.com/icons/">
-    
 </head>
 
 <body>
@@ -33,41 +33,46 @@
                     <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
                 <li class="navbar__btn">
-                    <a href="/signup" class="button">SIGN UP / LOGIN</a>
+                    <a href="/" class="button">SIGN UP / LOGIN</a>
                 </li>
             </ul>
         </div>
     </nav>
-      {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
-        <strong> Message: </strong> {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> </button>
-        <span aria-hidden="true"> &times;</span>
-        </div>
-        {% endfor %}
 
-    <div class="center">
-        <h1>Login</h1>
-        <form method="post" action="/signin/">
-        {% csrf_token %}
-          <div class="txt_field">
-            <input type="text" id="username" name="username"  required>
-            <span></span>
-            <label>Username</label>
-          </div>
-          <div class="txt_field">
-            <input type="password" id="password" name="password" required>
-            <span></span>
-            <label>Password</label>
-          </div>
-          <div class="pass">Forgot Password?</div>
-          <input type="submit" value="Login">
-          <div class="signup_link">
-            Not a member? <a href="/signup">Signup</a>
-          </div>
-        </form>
-      </div>
-    
-    <script src="{% static 'cal/app.js' %}"></script>
+    <div class="services">
+        <div class="task">
+            <h1>Tasks</h1>
+            <div class="task__btn">
+                <button onclick="myFunction()">Add Task</button> 
+                
+            </div>
+            
+            <table style="width: 150%">
+                <tr>
+                    <th>Assignments</th>
+                    <th>Due Dates</th>
+                    <th>Importance Rating</th>
+                </tr>
+                <tr>
+                    <td><p id="InputAdded"></p></td>
+                    <td><p id="Date"></p></td>
+                    <td><p id="Rating"</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+        
+
+
+        
+    <script src="{% static 'cal/app.js' %}">
+        var color = "#ff8177";
+        var i = 0;
+        document.querySelector(".task__btn").addEventListener("click", myFunction());{
+            i = 1 < color.length ? i++ : 0;
+        document.querySelector("body").style.background = color[i]};
+    </script>
 </body>
+
 </html>

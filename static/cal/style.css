@@ -7,7 +7,7 @@
 
 .navbar {
     /* rgb(0, 206, 209) */
-    background: #202020 ;
+    background: #202020;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -66,7 +66,7 @@
     padding: 0 1rem;
     height: 100%;
     font-size: 2rem;
-    font-weight: bolder; 
+    font-weight: bolder;
 }
 
 .navbar__btn {
@@ -100,8 +100,7 @@
 }
 
 .navbar__links:hover {
-  
-    color: #fff ;
+    color: #fff;
     transition: all 0.3s ease;
 }
 
@@ -126,10 +125,10 @@
         transition: all 0.5s ease;
         height: 50vh;
         z-index: -1;
-        background: #b6af9d ;
+        background: #b6af9d;
     }
     .navbar__menu.active {
-        background: #b6af9d ;
+        background: #b6af9d;
         top: 100%;
         opacity: 1;
         transition: all 0.5s ease;
@@ -251,7 +250,6 @@
     position: relative;
     transition: all 0.35s;
     outline: none;
-    
 }
 
 .main__btn a {
@@ -303,57 +301,53 @@
         margin: 0 auto;
         height: 90vh;
     }
-    .main__content{
+    .main__content {
         text-align: center;
         margin-bottom: 4rem;
     }
-
-    .main__content h1{
+    .main__content h1 {
         font-size: 2.5rem;
         margin-top: 2rem;
     }
-    .main__content h2{
+    .main__content h2 {
         font-size: 3rem;
     }
-
-    .main__content p{
+    .main__content p {
         margin-top: 1rem;
         font-size: 1.5rem;
     }
 }
 
-@media screen and (max-width: 480px){
-    .main__content h1{
+@media screen and (max-width: 480px) {
+    .main__content h1 {
         font-size: 2rem;
         margin-top: 3rem;
     }
-    .main__content h2{
+    .main__content h2 {
         font-size: 2rem;
     }
-
-    .main__content p{
+    .main__content p {
         margin-top: 2rem;
         font-size: 1.5rem;
     }
-
-    .main__btn{
+    .main__btn {
         padding: 12px 36px;
-        margin : 2.5rem 0;
+        margin: 2.5rem 0;
     }
 }
 
+
 /* Service section CSS */
 
-.services{
-    background:#3a3838;
+.services {
+    background: #3a3838;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height:95vh;
+    height: 95vh;
 }
 
-
-.services h1{
+.services h1 {
     background-color: #ff8177;
     background-image: linear-gradient(
         to right, 
@@ -364,65 +358,46 @@
         #cf556c 60%, 
         #b12a5b 100%
     );
-    background-size: 100%;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    font-size: 4.5rem;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
+    background-image: linear-gradient( to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
 }
 
-.services__container{
+.services__container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.services__card{
+.services__card {
     margin: 1rem;
     top: 50px;
     height: 375px;
     width: 500px;
     border-radius: 4px;
-    background-image: linear-gradient(
-    to bottom, 
-    rgba(0,0,0,0) 0%,
-    rgba(17,17,17, 0.6) 100%
-    ),
-    url('/static/cal/images/clock.jpeg');
+    background-image: linear-gradient( to bottom, rgba(0, 0, 0, 0) 0%, rgba(17, 17, 17, 0.6) 100%), url('/static/cal/images/clock.jpeg');
     background-size: cover;
     position: relative;
     color: #141414;
 }
 
-.services__card:nth-child(2){
-    background-image: linear-gradient(
-    to bottom, 
-    rgba(0,0,0,0) 0%,
-    rgba(17,17,17, 0.6) 100%
-    ),
-    url('/static/cal/images/todo.jpg');
+.services__card:nth-child(2) {
+    background-image: linear-gradient( to bottom, rgba(0, 0, 0, 0) 0%, rgba(17, 17, 17, 0.6) 100%), url('/static/cal/images/todo.jpg');
 }
 
-.services h2{
-    color:#fff;
+.services h2 {
+    color: #fff;
     position: absolute;
     top: 265px;
     left: 30px;
     font-size: 2.5rem;
 }
 
-
-.services__card p{
+.services__card p {
     position: absolute;
     top: 400px;
     left: 30px;
-
 }
 
-.services__card button{
+.services__card button {
     color: black;
     padding: 10px 20px;
     border: none;
@@ -437,32 +412,30 @@
     cursor: pointer;
 }
 
-.services__card:hover{
+.services__card:hover {
     transform: scale(1.075);
-    transition:  0.2s ease-in;
+    transition: 0.2s ease-in;
     cursor: pointer;
 }
 
 @media screen and (max-width: 960px) {
-    .services{
+    .services {
         height: 1600px;
     }
-    .services h1{
+    .services h1 {
         font-size: 2rem;
         margin-top: 12rem;
     }
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
     .services {
         height: 1400px;
     }
-
-    .services h1{
+    .services h1 {
         font-size: 1.2rem;
     }
-
-    .services__card{
+    .services__card {
         width: 300px;
     }
 }
@@ -470,7 +443,7 @@
 
 /* Pomodoro section */
 
-.pomodoro{
+.pomodoro {
     display: inline-block;
     background-color: #3a383e;
     height: 100%;
@@ -480,15 +453,9 @@
     justify-items: auto;
 }
 
-.pomodoro h1{
+.pomodoro h1 {
     background-color: #ff8177;
-    background-image: linear-gradient(
-        to right, 
-        #ff8c7f 41%,
-        #f99185 72%,
-        #cf556c 88%, 
-        #b12a5b 100%
-    );
+    background-image: linear-gradient( to right, #ff8c7f 41%, #f99185 72%, #cf556c 88%, #b12a5b 100%);
     background-size: 100%;
     font-size: 4.5rem;
     text-align: center;
@@ -497,8 +464,8 @@
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
-
 }
+
 .pomodoro__box {
     display: flex;
     width: 500px;
@@ -514,7 +481,7 @@
     border-radius: 1.5rem;
 }
 
-.pomodoro__btn{
+.pomodoro__btn {
     color: black;
     padding: 10px 20px;
     border: none;
@@ -522,38 +489,40 @@
     border-radius: 4px;
     background: #f77062;
     position: absolute;
-    transform: translate(0,100px);
+    transform: translate(0, 100px);
     font-size: 1.75rem;
     font-weight: 700;
     cursor: pointer;
 }
 
-.pomodoro__btn:hover{
+.pomodoro__btn:hover {
     background-color: #4837ff;
     transform: scale(1.075);
-    transform: translate(0,100px);
-    transition:  0.2s ease-in;
+    transform: translate(0, 100px);
+    transition: 0.2s ease-in;
     cursor: pointer;
 }
 
-.pomodoro__box p{
+.pomodoro__box p {
     visibility: hidden;
     color: black;
     padding: 10px 20px;
     border: none;
     outline: none;
     border-radius: 4px;
-    background: transparent; /*#f77062*/
+    background: transparent;
+    /*#f77062*/
     position: absolute;
-    transform: translate(0,-50px);
+    transform: translate(0, -50px);
     font-size: 3rem;
     font-weight: 700;
     cursor: pointer;
 }
 
+
 /* Task CSS */
 
-.task__btn{
+.task__btn {
     color: black;
     padding: 10px 20px;
     border: none;
@@ -567,23 +536,26 @@
     font-weight: 700;
     cursor: pointer;
 }
-.task__btn:hover{
+
+.task__btn:hover {
     background-color: #4837ff;
     transform: scale(1.075);
-    transition:  0.2s ease-in;
+    transition: 0.2s ease-in;
     cursor: pointer;
 }
 
+
 /* Login CSS */
 
-body{
+body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg,#f77062, #8e44ad);
+    background: linear-gradient(120deg, #f77062, #8e44ad);
     height: 100vh;
     overflow: hidden;
-  }
-  .center{
+}
+
+.center {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -591,23 +563,27 @@ body{
     width: 400px;
     background: white;
     border-radius: 10px;
-    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
-  }
-  .center h1{
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+.center h1 {
     text-align: center;
     padding: 20px 0;
     border-bottom: 1px solid silver;
-  }
-  .center form{
+}
+
+.center form {
     padding: 0 40px;
     box-sizing: border-box;
-  }
-  form .txt_field{
+}
+
+form .txt_field {
     position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0;
-  }
-  .txt_field input{
+}
+
+.txt_field input {
     width: 100%;
     padding: 0 5px;
     height: 40px;
@@ -615,8 +591,9 @@ body{
     border: none;
     background: none;
     outline: none;
-  }
-  .txt_field label{
+}
+
+.txt_field label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -625,8 +602,9 @@ body{
     font-size: 16px;
     pointer-events: none;
     transition: .5s;
-  }
-  .txt_field span::before{
+}
+
+.txt_field span::before {
     content: '';
     position: absolute;
     top: 40px;
@@ -635,25 +613,30 @@ body{
     height: 2px;
     background: #f77062;
     transition: .5s;
-  }
-  .txt_field input:focus ~ label,
-  .txt_field input:valid ~ label{
+}
+
+.txt_field input:focus~label,
+.txt_field input:valid~label {
     top: -5px;
     color: #f77062;
-  }
-  .txt_field input:focus ~ span::before,
-  .txt_field input:valid ~ span::before{
+}
+
+.txt_field input:focus~span::before,
+.txt_field input:valid~span::before {
     width: 100%;
-  }
-  .pass{
+}
+
+.pass {
     margin: -5px 0 20px 5px;
     color: #a6a6a6;
     cursor: pointer;
-  }
-  .pass:hover{
+}
+
+.pass:hover {
     text-decoration: underline;
-  }
-  input[type="submit"]{
+}
+
+input[type="submit"] {
     width: 100%;
     height: 50px;
     border: 1px solid;
@@ -664,53 +647,62 @@ body{
     font-weight: 700;
     cursor: pointer;
     outline: none;
-  }
-  input[type="submit"]:hover{
+}
+
+input[type="submit"]:hover {
     border-color: #f77062;
     transition: .5s;
-  }
-  .signup_link{
+}
+
+.signup_link {
     margin: 30px 0;
     text-align: center;
     font-size: 16px;
     color: #666666;
-  }
-  .signup_link a{
+}
+
+.signup_link a {
     color: #2691d9;
     text-decoration: none;
-  }
-  .signup_link a:hover{
+}
+
+.signup_link a:hover {
     text-decoration: underline;
-  }
+}
+
 
 /* SignUp CSS */
 
-  .center2{
+.center2 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 500px;
+    width: 450px;
+    height: 700px;
     background: white;
     border-radius: 10px;
-    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
-  }
-  .center2 h1{
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+.center2 h1 {
     text-align: center;
     padding: 20px 0;
     border-bottom: 1px solid silver;
-  }
-  .center2 form{
+}
+
+.center2 form {
     padding: 0 40px;
     box-sizing: border-box;
-  }
-  form .txt_field{
+}
+
+form .txt_field {
     position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0;
-  }
-  .txt_field input{
+}
+
+.txt_field input {
     width: 100%;
     padding: 0 5px;
     height: 40px;
@@ -718,8 +710,9 @@ body{
     border: none;
     background: none;
     outline: none;
-  }
-  .txt_field label{
+}
+
+.txt_field label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -728,8 +721,9 @@ body{
     font-size: 16px;
     pointer-events: none;
     transition: .5s;
-  }
-  .txt_field span::before{
+}
+
+.txt_field span::before {
     content: '';
     position: absolute;
     top: 40px;
@@ -738,25 +732,30 @@ body{
     height: 2px;
     background: #f77062;
     transition: .5s;
-  }
-  .txt_field input:focus ~ label,
-  .txt_field input:valid ~ label{
+}
+
+.txt_field input:focus~label,
+.txt_field input:valid~label {
     top: -5px;
     color: #f77062;
-  }
-  .txt_field input:focus ~ span::before,
-  .txt_field input:valid ~ span::before{
+}
+
+.txt_field input:focus~span::before,
+.txt_field input:valid~span::before {
     width: 100%;
-  }
-  .pass{
+}
+
+.pass {
     margin: -5px 0 20px 5px;
     color: #a6a6a6;
     cursor: pointer;
-  }
-  .pass:hover{
+}
+
+.pass:hover {
     text-decoration: underline;
-  }
-  input[type="submit"]{
+}
+
+input[type="submit"] {
     width: 100%;
     height: 50px;
     border: 1px solid;
@@ -767,24 +766,25 @@ body{
     font-weight: 700;
     cursor: pointer;
     outline: none;
-  }
-  input[type="submit"]:hover{
+}
+
+input[type="submit"]:hover {
     border-color: #f77062;
     transition: .5s;
-  }
-  .signup_link{
+}
+
+.signup_link {
     margin: 30px 0;
     text-align: center;
     font-size: 16px;
     color: #666666;
-  }
-  .signup_link a{
+}
+
+.signup_link a {
     color: #2691d9;
     text-decoration: none;
-  }
-  .signup_link a:hover{
+}
+
+.signup_link a:hover {
     text-decoration: underline;
-  }
-
-
-
+}
