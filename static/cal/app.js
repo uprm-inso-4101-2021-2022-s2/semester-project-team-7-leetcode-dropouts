@@ -35,8 +35,8 @@ var x = null;
 function timer() {
 
     // if(document.getElementById('pomodoro_button').innerHTML == "START"){
-    // Get todays time plus 30 min (1800 seconds * 1000 for the ms)
-    var countDownDate = new Date().getTime() + 1801 * 1000;
+    // Get todays time plus 25 min (1500 seconds * 1000 for the ms)
+    var countDownDate = new Date().getTime() + 1501 * 1000;
     // running = true;
     // Update the count down every 1 second
     x = setInterval(function() {
