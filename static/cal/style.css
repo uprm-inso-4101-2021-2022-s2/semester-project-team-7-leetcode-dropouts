@@ -466,6 +466,23 @@
     -moz-text-fill-color: transparent;
 }
 
+.pomodoro h2{
+    position: absolute;
+    color: #141414;
+    font-size: 30px;
+    margin: 50px;
+    left: 35%;
+}
+
+.pomodoro h2:nth-child(2){
+    left: 50%;
+}
+
+.pomodoro h2:hover {    
+    color: #fff;    
+    transition: all 0.3s ease;
+}
+
 .pomodoro__box {
     display: flex;
     width: 500px;

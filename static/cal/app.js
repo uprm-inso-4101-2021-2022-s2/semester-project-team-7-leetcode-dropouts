@@ -32,11 +32,21 @@ function myFunction() {
 }
 
 var x = null;
+var shortBreak = false;
+var time = 0;
 function timer() {
 
     // if(document.getElementById('pomodoro_button').innerHTML == "START"){
     // Get todays time plus 25 min (1500 seconds * 1000 for the ms)
-    var countDownDate = new Date().getTime() + 1501 * 1000;
+
+    if(shortBreak == true){
+      time = 301;
+    }
+    else{
+      time = 1501;
+    }
+
+    var countDownDate = new Date().getTime() + time * 1000;
     // running = true;
     // Update the count down every 1 second
     x = setInterval(function() {
@@ -58,13 +68,26 @@ function timer() {
         
     // If the count down is over, write Times Up
     if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("displayPomodoro").innerHTML = "Times Up";
+        if(shortBreak == true){
+          shortBreak = false;
+          document.getElementById('ShortBreak').style.visibility = "visible";
+          clearInterval(x);
+          document.getElementById('notDead').innerHTML = "0m 0s";
+          stopTimer();
+        }
+        else{
+          shortBreak = true;
+          document.getElementById("ShortBreak").innerHTML = "Short Break";
+          clearInterval(x);
+          document.getElementById('notDead').innerHTML = "0m 0s";
+          timer();
+        }
         //document.getElementById('displayPomodoro').style.visibility = "hidden";
     }
     }, 1000);
 }
 function stopTimer(){
+    shortBreak = false;
     running = false;
     clearInterval(x)
     //document.getElementById("displayPomodoro").innerHTML = "Stopped";
