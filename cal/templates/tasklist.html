@@ -39,7 +39,7 @@
             </div>  {% endcomment %}
             
 
-            <div class = "task-items-wrapper">
+            <div class="task-items-wrapper">
                 {% for task in tasks %}
                 <div class="task-wrapper">
                     {% if task.complete %}
@@ -55,13 +55,12 @@
                     </div>
                     <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
                     {% endif %}
+                         
+                </div>
+                {% empty %}
+                    <h1> No assignments </h1>
+                {% endfor %}    
             </div>
-
-            {% empty %}
-                <h3> No assignments </h3>
-            {% endfor %}
-            
-        </div>
     </div>
 
     {% load static %}
