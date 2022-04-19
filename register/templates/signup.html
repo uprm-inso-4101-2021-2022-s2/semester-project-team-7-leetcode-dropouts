@@ -1,72 +1,51 @@
+{% extends 'main.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset ="utf-8">
-    <meta name = "viewport" content="width=device-width">
-    <title>Productivity Boost</title>
-    <link rel="stylesheet" href="{% static 'cal/style.css' %}" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://lineicons.com/icons/">
-    
-</head>
-
-<body>
-    <nav class="navbar">
-        <div class="navbar__container">
-            <a href="/" id="navbar__logo">Boost Verse</a>
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="/tasks" class="navbar__links">TASKS</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/pomodoro" class="navbar__links">POMODORO</a>
-                </li>
-                <li class="navbar__btn">
-                    <a href="/signin" class="button">SIGN UP / LOGIN</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+{% block content %}
 
     <div class="center2">
         <h1>Sign Up</h1>
-        <form method="post" action="/signup/">{% csrf_token %}
-          <div class="txt_field">
-            <input type="text" id="username" name="username" required>
-            <span></span>
-            <label>Username</label>
-          </div>
-          <div class="txt_field">
-            <input type="email" id="email" name="email" required>
-            <span></span>
-            <label>Email</label>
-          </div>
-          <div class="txt_field">
-            <input type="password" id="pass1" name="pass1" required>
-            <span></span>
-            <label>Password</label>
-          </div>
-          <div class="txt_field">
-            <input type="password" id="pass2" name="pass2" required>
-            <span></span>
-            <label>Confirm Password</label>
-          </div>
-          <div class="pass">Forgot Password?</div>
-          <input type="submit" value="Login">
-        </form>
-      </div>
+        <form method="post">
+        {% csrf_token %}
+
+        {% comment %} <h5>{{form.as_p}}</h5> {% endcomment %}
+        {% comment %} <h4>{{form.username}}</h4> {% endcomment %}
+        <div class="txt_field">
+          {{form.username}}
+          <span></span>
+          <label>{{form.username.label}}</label>
+        </div>
+        <h4>{{form.username.help_text}}</h4>
+        {% comment %} <div class="txt_field">
+          {{form.Email}}
+          <span></span>
+          <label>Email</label>
+        </div> {% endcomment %}
+        <h4>{{form.password1.errorlist}}</h4>
+        <div class="txt_field">
+          {{form.password1}}
+          <span></span>
+          <label>{{form.password1.label}}</label>
+        </div>
+        <h4>{{form.password1.help_text}}</h4>
+        <h4>{{form.password2.errorlist}}</h4>
+        <div class="txt_field">
+          {{form.password2}}
+          <span></span>
+          <label>Confirm Password</label>
+        </div>
+        
+
+    
+        <div class="pass">Forgot Password?</div>
+        <input type="submit" value="Sign Up">
+
+        <div class="signup_link">
+          Are you a member? <a href="/signin">Signin</a>
+        </div>
+      </form>
+    </div>
     
     <script src="{% static 'cal/app.js' %}"></script>
-</body>
-</html>
+
+    {% endblock content%}

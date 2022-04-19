@@ -1,0 +1,79 @@
+{% extends 'main.html' %}
+
+{% comment %} {% if request.user.is_authenticated %}
+    <p>{{request.user}}</p>
+
+{% else %}
+
+{% endif%} {% endcomment %}
+
+{% comment %} <hr> {% endcomment %}
+
+{% block content %}
+
+    <div class="services">
+        <div class="task">
+            <h1>Tasks</h1>
+
+            
+            <div id="search-add-wrapper">
+                <form method="GET" style="display: flex;">
+                    <input type='text' name='search-area' placeholder="Search for task" value="{{search_input}}">
+                    <input class="button" type="submit" value='Search'>
+                </form>
+                {% if tasks|length > 0 %}
+                <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+                {% endif %}
+            </div>
+
+
+            {% comment %} <form method="GET">
+                <input type="text" name="search-area" value = "{{search_input}}">
+                <input type="submit" value="Search">
+
+            </form> {% endcomment %}
+
+            {% comment %} <div class="task__btn">
+                <button onclick="myFunction()">Add Task</button>
+                <a href="{% url 'task-create' %}"> Add Task </a>
+            </div>  {% endcomment %}
+            
+
+            <div class = "task-items-wrapper">
+                {% for task in tasks %}
+                <div class="task-wrapper">
+                    {% if task.complete %}
+                    <div class="task-title">
+                        <div class="task-complete-icon"></div>
+                        <i><s> <a href="{% url 'task-update' task.id %}">{{task}}</a> </s></i>
+                    </div>
+                    <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
+                    {% else %}
+                    <div class="task-title">
+                        <div class="task-incomplete-icon"></div>
+                        <a href="{% url 'task-update' task.id %}">{{task}}</a>
+                    </div>
+                    <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
+                    {% endif %}
+            </div>
+
+            {% empty %}
+                <h3> No assignments </h3>
+            {% endfor %}
+            
+        </div>
+    </div>
+
+    {% load static %}
+    <script src="{% static 'cal/app.js' %}">
+        var color = "#ff8177";
+        var i = 0;
+        document.querySelector(".task__btn").addEventListener("click", myFunction());{
+            i = 1 < color.length ? i++ : 0;
+        document.querySelector("body").style.background = color[i]};
+    </script>
+</body>
+
+</html>
+
+{% endblock content %}

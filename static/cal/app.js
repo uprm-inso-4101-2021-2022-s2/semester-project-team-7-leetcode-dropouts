@@ -35,8 +35,8 @@ var x = null;
 function timer() {
 
     // if(document.getElementById('pomodoro_button').innerHTML == "START"){
-    // Get todays time plus 30 min (1800 seconds * 1000 for the ms)
-    var countDownDate = new Date().getTime() + 1801 * 1000;
+    // Get todays time plus 25 min (1500 seconds * 1000 for the ms)
+    var countDownDate = new Date().getTime() + 1501 * 1000;
     // running = true;
     // Update the count down every 1 second
     x = setInterval(function() {
@@ -52,7 +52,7 @@ function timer() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
     // Output the result in an element with id="displayPomodoro"
-    document.getElementById('displayPomodoro').innerHTML = minutes + "m " + seconds + "s ";
+    document.getElementById('notDead').innerHTML = minutes + "m " + seconds + "s ";
     document.getElementById('displayPomodoro').style.visibility = "visible";
     document.getElementById('pomodoro_button').style.visibility = "hidden";
         
@@ -68,6 +68,7 @@ function stopTimer(){
     running = false;
     clearInterval(x)
     //document.getElementById("displayPomodoro").innerHTML = "Stopped";
-    document.getElementById('displayPomodoro').style.visibility = "hidden";
+    document.getElementById('notDead').innerHTML = "25m 0s"
+    document.getElementById('displayPomodoro').style.visibility = "visible";
     document.getElementById('pomodoro_button').style.visibility = "visible";
 }

@@ -39,19 +39,33 @@
         </div>
     </nav>
 
-    <div class ="pomodoro">
-        <h1>POMODORO</h1>
-        
-        <div class="pomodoro__box">
-            
-            <p id="displayPomodoro"></p> <!--Creates the transparent container for the timer to appear on-->
-            <h1 id="notDead"> 25m 0s </h1>             
-            <script></script>
-            
-            <buttton id='pomodoro_stop_button', class="pomodoro__btn", onclick="stopTimer()">STOP</buttton>
-            <buttton id='pomodoro_button', class="pomodoro__btn", onclick="timer()">START</buttton>
-        </div>
-    </div>
+    <div class="center2">
+        <h1>Sign Up</h1>
+        <form method="post" action="/signup/">{% csrf_token %}
+          <div class="txt_field">
+            <input type="text" id="username" name="username" required>
+            <span></span>
+            <label>Username</label>
+          </div>
+          <div class="txt_field">
+            <input type="email" id="email" name="email" required>
+            <span></span>
+            <label>Email</label>
+          </div>
+          <div class="txt_field">
+            <input type="password" id="pass1" name="pass1" required>
+            <span></span>
+            <label>Password</label>
+          </div>
+          <div class="txt_field">
+            <input type="password" id="pass2" name="pass2" required>
+            <span></span>
+            <label>Confirm Password</label>
+          </div>
+          <div class="pass">Forgot Password?</div>
+          <input type="submit" value="Login">
+        </form>
+      </div>
     
     <script src="{% static 'cal/app.js' %}"></script>
 </body>
