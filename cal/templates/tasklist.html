@@ -18,12 +18,12 @@
             
             <div id="search-add-wrapper">
                 <form method="GET" style="display: flex;">
-                    <input type='text' name='search-area' placeholder="Search for task" value="{{search_input}}">
+                    <input class="search-for-task" type='text' name='search-area' placeholder="Search for task" value="{{search_input}}">
                     <input class="button" type="submit" value='Search'>
                 </form>
-                {% if tasks|length > 0 %}
+                {% comment %} {% if tasks|length > 0 %} {% endcomment %}
                 <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
-                {% endif %}
+                {% comment %} {% endif %} {% endcomment %}
             </div>
 
 
