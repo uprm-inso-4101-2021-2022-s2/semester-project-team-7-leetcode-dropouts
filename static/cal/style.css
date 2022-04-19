@@ -532,13 +532,10 @@
     box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
 }
 
-a,
-p {
-    color: #4b5156
-}
-
-a {
-    font-weight: 600;
+.task h1 {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .container {
