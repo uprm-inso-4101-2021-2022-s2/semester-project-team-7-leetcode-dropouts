@@ -41,5 +41,9 @@ class Test(models.Model):
 
 
 class Pomodorout(models.Model):
-    start_date = models.DateTimeField(auto_now_add = True)
-    end_date = models.DateTimeField('TTT')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    paused = models.BooleanField(default=False)
+    date = models.DateTimeField(auto_now_add=False, blank=True, null=True)
+
+    def __str__(self):
+        return str(self.name)

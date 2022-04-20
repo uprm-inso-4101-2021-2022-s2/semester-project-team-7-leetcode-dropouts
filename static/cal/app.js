@@ -41,9 +41,13 @@ function timer() {
 
     if(shortBreak == true){
       time = 301;
+
+      document.getElementById('ShortBreak').innerHTML = "Short Break";
+
     }
     else{
       time = 1501;
+      document.getElementById('ShortBreak').innerHTML = "Study Time";
     }
 
     var countDownDate = new Date().getTime() + time * 1000;
@@ -90,6 +94,7 @@ function stopTimer(){
     shortBreak = false;
     running = false;
     clearInterval(x)
+    document.getElementById('ShortBreak').innerHTML = "Study Time";
     //document.getElementById("displayPomodoro").innerHTML = "Stopped";
     document.getElementById('notDead').innerHTML = "25m 0s"
     document.getElementById('displayPomodoro').style.visibility = "visible";
