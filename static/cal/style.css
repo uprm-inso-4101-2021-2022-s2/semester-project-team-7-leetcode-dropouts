@@ -467,15 +467,13 @@
 }
 
 .pomodoro h2{
-    position: absolute;
+    position:relative;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     color: #141414;
-    font-size: 30px;
-    margin: 50px;
-    left: 35%;
-}
-
-.pomodoro h2:nth-child(2){
-    left: 50%;
+    font-size: 45px;
+    top: 120px;
 }
 
 .pomodoro h2:hover {    
