@@ -10,7 +10,7 @@ from django.conf import settings
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Task
+from .models import Task, Pomodorout
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -21,8 +21,17 @@ def index(request):
     return render(request, 'index.html')
 
 def pomodoro(request):
+    # ob=Pomodorout.objects.get(id=2)
 
+
+
+
+
+    # return render(request,'pomodoro.html',{'ob':ob})
     return render(request, 'pomodoro.html')
+
+
+
 
 
 class TaskList(LoginRequiredMixin, ListView):
