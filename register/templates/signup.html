@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="center2">
+        <h1>Sign Up</h1>
+        <form method="post">
+        {% csrf_token %}
+
+        {% comment %} <h5>{{form.as_p}}</h5> {% endcomment %}
+        {% comment %} <h4>{{form.username}}</h4> {% endcomment %}
+        <div class="txt_field">
+          {{form.username}}
+          <span></span>
+          <label>{{form.username.label}}</label>
+        </div>
+        <h4>{{form.username.help_text}}</h4>
+        {% comment %} <div class="txt_field">
+          {{form.Email}}
+          <span></span>
+          <label>Email</label>
+        </div> {% endcomment %}
+        <h4>{{form.password1.errorlist}}</h4>
+        <div class="txt_field">
+          {{form.password1}}
+          <span></span>
+          <label>{{form.password1.label}}</label>
+        </div>
+        <h4>{{form.password1.help_text}}</h4>
+        <h4>{{form.password2.errorlist}}</h4>
+        <div class="txt_field">
+          {{form.password2}}
+          <span></span>
+          <label>Confirm Password</label>
+        </div>
+        
+
+    
+        <div class="pass">Forgot Password?</div>
+        <input type="submit" value="Sign Up">
+
+        <div class="signup_link">
+          Are you a member? <a href="/signin">Signin</a>
+        </div>
+      </form>
+    </div>
+    
+    <script src="{% static 'cal/app.js' %}"></script>
+
+    {% endblock content%}

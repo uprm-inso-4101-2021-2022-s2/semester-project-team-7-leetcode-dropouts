@@ -2,9 +2,6 @@ const menu = document.querySelector('#mobile-menu');
 const menuLinks = document.querySelector('.navbar__menu');
 
 const countdown = document.querySelector(".countdown");
-const date = new Date(25,00);
-
-console.log(date);
 
 countdown.innerHTML = '<div>${minutes}</div> <div>${seconds}</div>';
 
@@ -32,4 +29,74 @@ function myFunction() {
     }
 
   }
+}
+
+var x = null;
+var shortBreak = false;
+var time = 0;
+function timer() {
+
+    // if(document.getElementById('pomodoro_button').innerHTML == "START"){
+    // Get todays time plus 25 min (1500 seconds * 1000 for the ms)
+
+    if(shortBreak == true){
+      time = 301;
+
+      document.getElementById('ShortBreak').innerHTML = "Short Break";
+
+    }
+    else{
+      time = 1501;
+      document.getElementById('ShortBreak').innerHTML = "Study Time";
+    }
+
+    var countDownDate = new Date().getTime() + time * 1000;
+    // running = true;
+    // Update the count down every 1 second
+    x = setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+                            
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+        
+    // Time calculations minutes and seconds
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+    // Output the result in an element with id="displayPomodoro"
+    document.getElementById('notDead').innerHTML = minutes + "m " + seconds + "s ";
+    document.getElementById('displayPomodoro').style.visibility = "visible";
+    document.getElementById('pomodoro_button').style.visibility = "hidden";
+        
+    // If the count down is over, write Times Up
+    if (distance < 0) {
+        if(shortBreak == true){
+          shortBreak = false;
+          document.getElementById('ShortBreak').style.visibility = "visible";
+          clearInterval(x);
+          document.getElementById('notDead').innerHTML = "0m 0s";
+          stopTimer();
+        }
+        else{
+          shortBreak = true;
+          document.getElementById("ShortBreak").innerHTML = "Short Break";
+          clearInterval(x);
+          document.getElementById('notDead').innerHTML = "0m 0s";
+          timer();
+        }
+        //document.getElementById('displayPomodoro').style.visibility = "hidden";
+    }
+    }, 1000);
+}
+function stopTimer(){
+    shortBreak = false;
+    running = false;
+    clearInterval(x)
+    document.getElementById('ShortBreak').innerHTML = "Study Time";
+    //document.getElementById("displayPomodoro").innerHTML = "Stopped";
+    document.getElementById('notDead').innerHTML = "25m 0s"
+    document.getElementById('displayPomodoro').style.visibility = "visible";
+    document.getElementById('pomodoro_button').style.visibility = "visible";
 }

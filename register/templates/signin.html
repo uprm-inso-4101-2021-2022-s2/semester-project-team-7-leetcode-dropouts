@@ -33,26 +33,40 @@
                     <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
                 <li class="navbar__btn">
-                    <a href="/signin" class="button">SIGN UP / LOGIN</a>
+                    <a href="/signup" class="button">SIGN UP / LOGIN</a>
                 </li>
             </ul>
         </div>
     </nav>
-
-    <div class ="pomodoro">
-        <h1>POMODORO</h1>
-        <h2 id="ShortBreak"> Study Time </h2>
-        
-        <div class="pomodoro__box">
-            
-            <p id="displayPomodoro"></p> <!--Creates the transparent container for the timer to appear on-->
-            <h1 id="notDead"> 25m 0s </h1>             
-            <script></script>
-            
-            <buttton id='pomodoro_stop_button', class="pomodoro__btn", onclick="stopTimer()">STOP</buttton>
-            <buttton id='pomodoro_button', class="pomodoro__btn", onclick="timer(10)">START</buttton>
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
+        <strong> Message: </strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> </button>
+        <span aria-hidden="true"> &times;</span>
         </div>
-    </div>
+        {% endfor %}
+
+    <div class="center">
+        <h1>Login</h1>
+        <form method="post" action="/signin/">
+        {% csrf_token %}
+          <div class="txt_field">
+            <input type="text" id="username" name="username"  required>
+            <span></span>
+            <label>Username</label>
+          </div>
+          <div class="txt_field">
+            <input type="password" id="password" name="password" required>
+            <span></span>
+            <label>Password</label>
+          </div>
+          <div class="pass">Forgot Password?</div>
+          <input type="submit" value="Login">
+          <div class="signup_link">
+            Not a member? <a href="/signup">Signup</a>
+          </div>
+        </form>
+      </div>
     
     <script src="{% static 'cal/app.js' %}"></script>
 </body>

@@ -1,19 +1,18 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset ="utf-8">
     <meta name = "viewport" content="width=device-width">
-    <title>Productivity Boost</title>
+    <title>"Productivity Boost"</title>
+        
     <link rel="stylesheet" href="{% static 'cal/style.css' %}" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://lineicons.com/icons/">
-    
 </head>
 
 <body>
@@ -32,41 +31,47 @@
                 <li class="navbar__item">
                     <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
-                <li class="navbar__btn">
+                {% if user.is_authenticated %}
+                <li class="navbar__btn ">
+                    <a href="/signout" class="button">SIGN OUT {{ user }}?</a>
+                    {% comment %} <h1> Welcome {{ user }} </a> {% endcomment %}
+                </li>
+                {% else %}
+                <li class="navbar__btn ">
                     <a href="/signin" class="button">SIGN UP / LOGIN</a>
                 </li>
+                {% endif %}
+                {% comment %} <li class="navbar__btn">
+                    <a href="/" class="button">SIGN UP / LOGIN</a>
+                </li> {% endcomment %}
             </ul>
         </div>
     </nav>
 
-    <div class="center2">
-        <h1>Sign Up</h1>
-        <form method="post">
-          <div class="txt_field">
-            <input type="text" required>
-            <span></span>
-            <label>Username</label>
-          </div>
-          <div class="txt_field">
-            <input type="email" required>
-            <span></span>
-            <label>Email</label>
-          </div>
-          <div class="txt_field">
-            <input type="password" required>
-            <span></span>
-            <label>Password</label>
-          </div>
-          <div class="txt_field">
-            <input type="password" required>
-            <span></span>
-            <label>Confirm Password</label>
-          </div>
-          <div class="pass">Forgot Password?</div>
-          <input type="submit" value="Login">
-        </form>
-      </div>
-    
-    <script src="{% static 'cal/app.js' %}"></script>
+    {% comment %} <style>
+
+        
+
+    </style> {% endcomment %}
+
+    <div class="tasks-container">
+
+        {% block content %}
+
+
+        {% endblock content %}
+
+    </div>
+
+
+        
+    <script src="{% static 'cal/app.js' %}">
+        var color = "#ff8177";
+        var i = 0;
+        document.querySelector(".task__btn").addEventListener("click", myFunction());{
+            i = 1 < color.length ? i++ : 0;
+        document.querySelector("body").style.background = color[i]};
+    </script>
 </body>
+
 </html>

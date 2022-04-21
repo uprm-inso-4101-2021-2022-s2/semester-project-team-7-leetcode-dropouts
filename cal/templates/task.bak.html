@@ -6,14 +6,14 @@
 <head>
     <meta charset ="utf-8">
     <meta name = "viewport" content="width=device-width">
-    <title>Productivity Boost</title>
+    <title>"Productivity Boost"</title>
+        
     <link rel="stylesheet" href="{% static 'cal/style.css' %}" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://lineicons.com/icons/">
-    
 </head>
 
 <body>
@@ -33,27 +33,46 @@
                     <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
                 <li class="navbar__btn">
-                    <a href="/signin" class="button">SIGN UP / LOGIN</a>
+                    <a href="/" class="button">SIGN UP / LOGIN</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class ="pomodoro">
-        <h1>POMODORO</h1>
-        <h2 id="ShortBreak"> Study Time </h2>
-        
-        <div class="pomodoro__box">
+    <div class="services">
+        <div class="task">
+            <h1>Tasks</h1>
+            <div class="task__btn">
+                <button onclick="myFunction()">Add Task</button> 
+                
+            </div>
             
-            <p id="displayPomodoro"></p> <!--Creates the transparent container for the timer to appear on-->
-            <h1 id="notDead"> 25m 0s </h1>             
-            <script></script>
-            
-            <buttton id='pomodoro_stop_button', class="pomodoro__btn", onclick="stopTimer()">STOP</buttton>
-            <buttton id='pomodoro_button', class="pomodoro__btn", onclick="timer(10)">START</buttton>
+            <table style="width: 150%">
+                <tr>
+                    <th>Assignments</th>
+                    <th>Due Dates</th>
+                    <th>Importance Rating</th>
+                </tr>
+                <tr>
+                    <td><p id="InputAdded"></p></td>
+                    <td><p id="Date"></p></td>
+                    <td><p id="Rating"</td>
+                </tr>
+            </table>
         </div>
     </div>
-    
-    <script src="{% static 'cal/app.js' %}"></script>
+
+        
+
+
+        
+    <script src="{% static 'cal/app.js' %}">
+        var color = "#ff8177";
+        var i = 0;
+        document.querySelector(".task__btn").addEventListener("click", myFunction());{
+            i = 1 < color.length ? i++ : 0;
+        document.querySelector("body").style.background = color[i]};
+    </script>
 </body>
+
 </html>
