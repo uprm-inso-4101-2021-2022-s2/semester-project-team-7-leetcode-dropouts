@@ -24,7 +24,7 @@ def pomodoro(request):
     # ob=Pomodorout.objects.get(id=2)
 
 
-
+    
 
 
     # return render(request,'pomodoro.html',{'ob':ob})
