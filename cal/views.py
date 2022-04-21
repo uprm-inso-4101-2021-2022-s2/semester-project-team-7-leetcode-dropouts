@@ -20,18 +20,26 @@ def index(request):
     # return HttpResponse("Hello habibi, run keiven template eventually")
     return render(request, 'index.html')
 
-def pomodoro(request):
-    # ob=Pomodorout.objects.get(id=2)
-
-
-    
-
-
-    # return render(request,'pomodoro.html',{'ob':ob})
-    return render(request, 'pomodoro.html')
+# def pomodoro(request):
+#     # ob=Pomodorout.objects.get(id=2)
 
 
 
+
+
+#     # return render(request,'pomodoro.html',{'ob':ob})
+#     return render(request, 'pomodoro.html')
+
+
+class Pomodoro(ListView):
+    model = Pomodorout
+    context_object_name = 'Pomodorout'
+    template_name = 'pomodoro.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Pomodorout'] = context['Pomodorout'].filter(user=self.request.user)
+        return context
 
 
 class TaskList(LoginRequiredMixin, ListView):

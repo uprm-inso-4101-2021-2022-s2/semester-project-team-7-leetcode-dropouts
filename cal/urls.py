@@ -11,5 +11,5 @@ urlpatterns = [
     path('task-update/<int:pk>/', views.TaskUpdate.as_view(), name = 'task-update'),
     path('task-delete/<int:pk>/', views.DeleteView.as_view(), name = 'task-delete'),
     path('task/<int:pk>/', views.TaskDetail.as_view(), name = 'task'),
-    path('pomodoro/', views.pomodoro, name = 'pomodoro'),
+    path('pomodoro/', views.Pomodoro.as_view(), name = 'pomodoro'),
 ]

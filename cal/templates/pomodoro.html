@@ -32,9 +32,16 @@
                 <li class="navbar__item">
                     <a href="/pomodoro" class="navbar__links">POMODORO</a>
                 </li>
-                <li class="navbar__btn">
+                {% if user.is_authenticated %}
+                <li class="navbar__btn ">
+                    <a href="/signout" class="button">SIGN OUT {{ user }}?</a>
+                    {% comment %} <h1> Welcome {{ user }} </a> {% endcomment %}
+                </li>
+                {% else %}
+                <li class="navbar__btn ">
                     <a href="/signin" class="button">SIGN UP / LOGIN</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
