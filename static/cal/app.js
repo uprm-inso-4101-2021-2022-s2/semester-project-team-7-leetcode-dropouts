@@ -88,7 +88,7 @@ function timer() {
         }
         //document.getElementById('displayPomodoro').style.visibility = "hidden";
     }
-    }, 1000);
+    }, 10);
 }
 function stopTimer(){
     shortBreak = false;
