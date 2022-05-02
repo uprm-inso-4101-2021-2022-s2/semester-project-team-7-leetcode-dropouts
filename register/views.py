@@ -3,7 +3,7 @@ import datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.conf.urls.static import static
 from django.conf import settings
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -14,25 +14,45 @@ from . import views
 from cal import urls
 
 from django.views.generic.edit import FormView
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
-def signin(request):
 
-    if request.method == "POST":
+# def signin(request):
 
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+#     redirect_authenthicated_user = True
 
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('/')
+#     if request.method == "POST":
 
-        else:
-            messages.error(request, "Bad credentials!")
-            return redirect('signin')
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
 
-    return render(request, 'signin.html')
+#         user = authenticate(username=username, password=password)
+#         if user is not None:
+#             login(request, user)
+#             return redirect('/')
+
+#         else:
+#             messages.error(request, "Bad credentials!")
+#             return redirect('signin')
+
+#     return render(request, 'signin.html')
+
+class CustomLoginView(LoginView):
+    template_name = 'signin.html'
+    redirect_authenthicated_user = True
+    # if(self.request.user.is_authenticated):
+    #     redirect('index')
+    fields = "__all__"
+
+
+    def get(self, *args, **kwargs):
+            if self.request.user.is_authenticated:
+                return redirect('index')
+            return super(CustomLoginView, self).get(*args, **kwargs)
+
+
+    def get_success_url(self):
+        return reverse_lazy('index')
 
 class RegisterForm(FormView):
 

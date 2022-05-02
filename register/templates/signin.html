@@ -1,73 +1,44 @@
+{% extends 'main.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
+{% block content %}
 
-<head>
-    <meta charset ="utf-8">
-    <meta name = "viewport" content="width=device-width">
-    <title>Productivity Boost</title>
-    <link rel="stylesheet" href="{% static 'cal/style.css' %}" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://lineicons.com/icons/">
-    
-</head>
-
-<body>
-    <nav class="navbar">
-        <div class="navbar__container">
-            <a href="/" id="navbar__logo">Boost Verse</a>
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="/tasks" class="navbar__links">TASKS</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/pomodoro" class="navbar__links">POMODORO</a>
-                </li>
-                <li class="navbar__btn">
-                    <a href="/signup" class="button">SIGN UP / LOGIN</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-      {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
-        <strong> Message: </strong> {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> </button>
-        <span aria-hidden="true"> &times;</span>
-        </div>
-        {% endfor %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
+    <strong> Message: </strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> </button>
+    <span aria-hidden="true"> &times;</span>
+    </div>
+    {% endfor %}
 
     <div class="center">
         <h1>Login</h1>
-        <form method="post" action="/signin/">
-        {% csrf_token %}
-          <div class="txt_field">
-            <input type="text" id="username" name="username"  required>
-            <span></span>
-            <label>Username</label>
-          </div>
-          <div class="txt_field">
-            <input type="password" id="password" name="password" required>
-            <span></span>
-            <label>Password</label>
-          </div>
-          <div class="pass">Forgot Password?</div>
-          <input type="submit" value="Login">
-          <div class="signup_link">
-            Not a member? <a href="/signup">Signup</a>
-          </div>
-        </form>
-      </div>
-    
-    <script src="{% static 'cal/app.js' %}"></script>
-</body>
-</html>
+            
+            <form method="post">
+                {% csrf_token %}
+            <div class="txt_field">
+                {{form.username}}
+                {% comment %} <input type="text" id="username" name="username"  required> {% endcomment %}
+                <span></span>
+                <label>{{form.username.label}}</label>
+            </div>
+
+            <div class="txt_field">
+                {% comment %} <input type="password" id="password" name="password" required> {% endcomment %}
+                {{form.password}}
+                <span></span>
+                <label>{{form.password.label}}</label>
+            </div>
+
+            <div class="pass">Forgot Password?</div>
+            <input type="submit" value="Login">
+            <div class="signup_link">
+                Not a member? <a href="/signup">Signup</a>
+            </div>
+            </form>
+    </div>
+
+
+<script src="{% static 'cal/app.js' %}"></script>
+
+    {% endblock content%}
