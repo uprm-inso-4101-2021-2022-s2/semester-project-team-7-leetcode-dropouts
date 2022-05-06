@@ -20,7 +20,7 @@ class Task(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=256, null=True, blank=True)
     description = models.TextField(max_length=256, null=True, blank=True)
-    importance_raiting = models.IntegerField(blank=True)
+    importance_rating = models.IntegerField(blank=True)
     due_dates = models.DateTimeField(null=True)
     complete = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
@@ -29,7 +29,7 @@ class Task(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['importance_raiting', 'complete']
+        ordering = ['importance_rating', 'complete']
 
     # tied_to = models.ForeignKey(Account, on_delete=models.CASCADE)
     # ~ Will be implemented later ~
