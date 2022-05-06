@@ -31,7 +31,7 @@ def index(request):
 #     return render(request, 'pomodoro.html')
 
 
-class Pomodoro(ListView):
+class Pomodoro(LoginRequiredMixin, ListView):
     model = Pomodorout
     context_object_name = 'Pomodorout'
     template_name = 'pomodoro.html'
