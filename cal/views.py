@@ -84,7 +84,7 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'task_form.html'
     model = Task
     # fields = '__all__'
-    fields = {'title', 'description', 'complete', 'importance_raiting', 'due_dates'}
+    fields = {'title', 'description', 'complete', 'importance_rating', 'due_dates'}
     
     success_url = reverse_lazy('tasks')
 
